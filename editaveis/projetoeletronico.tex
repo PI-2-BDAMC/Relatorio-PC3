@@ -6,8 +6,6 @@ Captar, condicionar e processar os dados obtidos através dos sensores internos 
 
 \section{Requisitos}
 
-O intuito de analisar eletronicamente os principais parâmetros de funcionamento de um motor implica na aplicação de um sistema de sensoriamento, tanto interno, quanto externo do motor. Com o passar dos anos e a evolução tecnológica este sensoriamento está cada vez mais completo. Os motores já saem de fábrica com uma grande oferta de sensores acoplados internamente \cite{valle2004mapping}. Estes sensores variam de acordo com modelo e fabricante do motor, mas normalmente apresentam as mesmas características para um mesmo parâmetro.
-
 Os principais parâmetros de um motor a serem avaliados são:
 
 \begin{itemize}
@@ -17,20 +15,13 @@ Os principais parâmetros de um motor a serem avaliados são:
 	\item Velocidade angular do eixo das árvores de manivelas;
 	\item Posição angular da válvula borboleta;
 	\item Fluxo de ar posterior a válvula borboleta;
-	\item Quantidade de oxigênio presentes nos gases de exaustão.
-\end{itemize}
-
-Todos sensores que monitoram estes parâmetros já são acoplados ao motor no momento da fabricação, porém outros parâmetros importantes para análise devem ser considerados, são eles:
-
-\begin{itemize}
+	\item Quantidade de oxigênio presentes nos gases de exaustão;
 	\item Temperatura de entrada da água no radiador;
 	\item Temperatura de saída da água no radiador;
-	\item Temperatura dos gases de combustão;
+	\item Temperatura dos gases de combustão.
 \end{itemize}
 
-Estes parâmetros já não possuem um sensor monitorando-os, o que faz necessária sua implementação.
-
-A relação da temperatura da água na entrada e saída do radiador apresenta a funcionalidade do radiador, ou seja, se realmente há transferência de calor entre motor e radiador.
+A relação da temperatura da água na entrada e na saída do radiador apresenta a relação da transferência de calor entre motor e radiador.
 
 Todos estes sensores são passivos e emitem os dados em forma de sinais elétricos, sendo eles, alguma relação de tensão e corrente de acordo com o parâmetro a ser monitorado. Como um dos requisitos deste projeto apresenta uma interação com um software, todos estes dados devem ser processados digitalmente, o que implica na utilização de um microcontrolador para a aquisição e processamento destes sinais e transmissão dos mesmos, de modo que o software possa interpretá-lo de forma fiel e precisa. 
 
@@ -56,10 +47,11 @@ Todo sistema de aquisição a ser implementado pode ser dividido em 4 módulos, 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio=true,scale= 0.7]{figuras/Diagrama.PNG}
+	\includegraphics[keepaspectratio=true,scale= 1.0, angle=90]{figuras/Diagrama.PNG}
 	\caption{Diagrama de aquisição de dados}
 	\label{diagramaDeAquisicaoDeDados}
 \end{figure}
+\pagebreak
 
 \subsubsection{Sensores}
 
@@ -73,10 +65,10 @@ Os sensores utilizados internamente no motor apresentam características especí
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		\textbf{Parâmetros}          & \textbf{\begin{tabular}[c]{@{}c@{}}Tipo de \\ Sinal Gerado\end{tabular}} & \textbf{Tipo de sensor}                                                                                    & \textbf{Descrição}                                                                                           \\ \hline
-			Temperatura do óleo          & Analógico                     & Termistor (NTC)                                                                                            & \begin{tabular}[c]{@{}c@{}}Monitora a \\ temperatura do óleo \\ no motor\end{tabular}  \\ \hline
-		Temperatura do ar            & Analógico                     & Termistor (NTC)                                                                                            & \begin{tabular}[c]{@{}c@{}}Monitora a\\ temperatura do ar no\\ coletor de admissão\end{tabular}              \\ \hline
-		Temperatura da Água          & Analógico                     & Termistor (NTC)                                                                                            & \begin{tabular}[c]{@{}c@{}}Monitora a \\ temperatura do líquido \\ de arrefecimento do\\ motor\end{tabular}  \\ \hline
-		Pressão no Coletor           & Digital                       & Pressão diferencial                                                                                        & \begin{tabular}[c]{@{}c@{}}Monitora a pressão do\\  ar no coletor de \\ admissão\end{tabular}                \\ \hline
+			Temperatura do óleo          & Analógico                     & Termopar Tipo K                                                                                            & \begin{tabular}[c]{@{}c@{}}Monitora a \\ temperatura do óleo \\ no motor\end{tabular}  \\ \hline
+		Temperatura do ar            & Analógico                     & Termopar Tipo K                                                                                            & \begin{tabular}[c]{@{}c@{}}Monitora a\\ temperatura do ar no\\ coletor de admissão\end{tabular}              \\ \hline
+		Temperatura da Água          & Analógico                     & Termopar Tipo K                                                                                            & \begin{tabular}[c]{@{}c@{}}Monitora a \\ temperatura do líquido \\ de arrefecimento do\\ motor\end{tabular}  \\ \hline
+		Pressão no Coletor           & Analógico                       & Pressão diferencial                                                                                        & \begin{tabular}[c]{@{}c@{}}Monitora a pressão do\\  ar no coletor de \\ admissão\end{tabular}                \\ \hline
 		Rotação                      & Digital                       & Sensor Indutivo                                                                                            & \begin{tabular}[c]{@{}c@{}}Mede velocidade \\ angular do eixo\\ das árvores de\\ manivelas\end{tabular}      \\ \hline
 		Velocidade                   & Digital                       & Sensor Indutivo                                                                                            & \begin{tabular}[c]{@{}c@{}}Mede velocidade\\ angular do eixo\\  posterior a \\ transmissão\end{tabular}      \\ \hline
 		Posição da válvula borboleta & Analógico                     & Potenciômetro Linear                                                                                       & \begin{tabular}[c]{@{}c@{}}Monitora a posição\\ angular da válvula\\  borboleta\end{tabular}                 \\ \hline
@@ -96,15 +88,12 @@ Os sensores utilizados internamente no motor apresentam características especí
 		\textbf{Parâmetros}                                                                     & \textbf{\begin{tabular}[c]{@{}l@{}}Tipo de \\ Sinal Gerado\end{tabular}} & \textbf{Tipo de Sensor} & \textbf{Descrição}                                                                                                  \\ \hline
 		\begin{tabular}[c]{@{}l@{}}Temperatura de\\ entrada da água no\\  radiador\end{tabular} & Analógico                                                                & Termopar (K)         & \begin{tabular}[c]{@{}l@{}}Monitora a \\ temperatura de entrada\\ da água no radiador\end{tabular}                  \\ \hline
 		\begin{tabular}[c]{@{}l@{}}Temperatura de \\ saída da água \\ no radiador\end{tabular}  & Analógico                                                                & Termopar (K)         & \begin{tabular}[c]{@{}l@{}}Monitora a \\ temperatura da água \\ na saída do radiador\end{tabular}                   \\ \hline
-		\begin{tabular}[c]{@{}l@{}}Temperatura dos\\ gases de \\ Combustão\end{tabular}         & Analógico                                                                & Termistor (NTC)         & \begin{tabular}[c]{@{}l@{}}Monitora a \\ temperatura dos \\ gases de combustão\\  no sistema de escape\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Temperatura dos\\ gases de \\ Combustão\end{tabular}         & Analógico                                                                & Termopar Tipo K         & \begin{tabular}[c]{@{}l@{}}Monitora a \\ temperatura dos \\ gases de combustão\\  no sistema de escape\end{tabular} \\ \hline
 	\end{tabular}
 \end{table}
 
-\begin{itemize}
-	\item \textbf{Termistor (NTC)}:
-	A função deste sensor é medir a temperatura do óleo, da água do motor e do ar no coletor de admissão, transmitindo ao painel da bancada a temperatura destes parâmetros. Este sensor funciona pelo conceito de resistência variável, O termistor NTC (\textit{Negative Temperature Coeficient}) apresenta uma relação negativa entre a resistência e a variação a temperatura, ou seja, quanto maior a temperatura menor será a resistência. Estes sensores apresentam taxa de erro de aproximadamente 1\% , podendo atuar entre -55º e 150º. Neste projeto por se tratar de um sistema crítico, devido aos riscos de acidente, este tipo de sensor foi o escolhido, pois atende a todos os requisitos onde, possui uma pequena faixa de erro, possui um baixo custo e atua dentro das temperaturas a serem lidas, onde a maior temperatura a ser lida é de até 110º que é a temperatura do óleo do motor\cite{vdo01};
-	
-	\item \textbf{Termopar}: É um sensor utilizado para a medição de temperatura. Ele é feito utilizando dois metais diferentes ligados por suas extremidades. Quando há uma diferença de temperatura entre a extremidade unida e as extremidades livres, verifica-se o surgimento de uma diferença de potencial que pode ser medida por um voltímetro. Normalmente a saída é dada em microvolts, por isso, precisamos da placa de condicionamento para amplificação desse sinal. Nesse projeto, foi escolhido esse sensor devido ao sua capacidade de ler uma faixa de temperatura considerável e por sua construção física permite a leitura de temperatura em meios fluidos. Necessária para essa aplicação \cite{vdo01}.
+\begin{itemize}	
+	\item \textbf{Termopar Tipo K}: É um sensor utilizado para a medição de temperatura. Ele é feito utilizando dois metais diferentes ligados por suas extremidades. Quando há uma diferença de temperatura entre a extremidade unida e as extremidades livres, verifica-se o surgimento de uma diferença de potencial que pode ser medida por um voltímetro. Normalmente a saída é dada em microvolts, por isso, faz-se necessário o uso de uma placa de condicionamento para amplificação desse sinal. Nesse projeto, foi escolhido esse sensor devido a sua capacidade de ler uma faixa de temperatura entre 0 e 1240$º$C, além disso, por sua construção física permite a leitura de temperatura em meios fluidos. Necessária para essa aplicação \cite{vdo01}.
 	
 	\item \textbf{Sensor Indutivo}: Fornece ao módulo um sinal elétrico que possibilita a medição do número de rotação. O sinal gerado pelo sensor é obtido pela variação do fluxo magnético. Com a rotação do motor, os dentes da roda dentada passam pelo sensor e este fornece um sinal de tensão a cada passagem dos dentes ou ressaltos. Este sensor já é um ítem embutido no motor utilizado no projeto\cite{vdo01}.
 	
@@ -112,9 +101,7 @@ Os sensores utilizados internamente no motor apresentam características especí
 	Utilizado para captar a posição da válvula borboleta o potênciometro atua na variação da resistência de acordo com a variação da posição de um eixo que é rotacionado Escolhido para esse projeto pois se adequa com simplicidade à variação de posição que se deseja obter para permitir análise de dados nessa bancada\cite{vdo01}.
 	
 	\item \textbf{Pressão Diferencial}: 
-	Sensor MAP funciona medindo pressões através de manômetros e transformando em medidas de sinais elétricos. Normalmente utilizado para informar a pressão absoluta no coletor de admissão no motor de combustão interna \cite{vdo01}.
-	
-	\item \textbf{MPX5700}: é um sensor de pressão condicionado com temperatura compensada e calibrada, desenvolvido para uma vasta gama de aplicações. Mas particularmente às que incluem microcontroladores ou microprocessadores com entradas analógicas/digitais. Atendendo aplicações de 0 a 7.14 bar, podendo ser elas medições de pressão de ar, água ou vácuo\cite{freescaler01}.
+	Sensor MPX5700D é um sensor de pressão designado a para aplicações da largos ranges de pressão, atuando em pressões entre 0 e 700 kPa. Produz na sua saída níveis de tensão de 0.2 a 4.7 V, o que implica a não necessidade de um condicionamento do sinal.
 \end{itemize}
 
 \subsubsection{Microcontrolador}
@@ -176,11 +163,10 @@ Na nossa aplicação é desejado o controle da aceleração e da ignição de fo
 
 \subsection{Sistema de Comunicação}
 
-\subsubsection{Protocolo de comunicação I2C}
+\subsubsection{Protocolo de comunicação I$^{2}$C}
 
-O protocolo de comunicação I2C foi criado em 1996 pela philips \cite{benincasa2011desenvolvimento} com o objetivo de conectar periféricos de baixas velocidades a placa-mãe, microcontroladores, entre outros. Este protocolo descreve o funcionamento de um barramento de comunicação serial que utiliza apenas dois fios para trafegar informações. Para que a informação possa trafegar entre os dois componentes, é necessário que a unidade de controle e os periféricos possuam implementação e suporte I2C, seja essa implementação feita via hardware ou software. 
-O protocolo I2C possui dois tipos de dispositivos, Mestre e \textit{Slaves}. O Mestre é a unidade responsável por coordenar todos os periféricos (\textit{Slaves}). Dessa maneira, o mestre sempre verifica se existe um \textit{Slaves} na rede e caso exista, ele responde, começando assim, a transferência de dados.
-Neste projeto como é a raspberry Pi 3 que é responsável por realizar o processamento dos dados para gerar a informação final figura \ref{DiagramaDeAquisicaoDeDados}, é considerada então o mestre, pois é a raspberry a responsável por controlar o sistema de comunicação com ambas MSP430, tanto de controle, quanto a de aquisição.
+O protocolo I$^{2}$C possui dois tipos de dispositivos, \textit{Master} e \textit{Slave}. O \textit{Master} é a unidade responsável por coordenar todos os periféricos (\textit{Slaves}). Dessa maneira, \textit{Master} sempre verifica se existe um \textit{Slave} na rede e caso exista, ele responde, começando assim, a transferência de dados.
+Neste projeto como é a raspberry Pi 3 que é responsável por realizar o processamento dos dados para gerar a informação final figura \ref{DiagramaDeAquisicaoDeDados}, é considerada então o \textit{Master}, pois é a raspberry a responsável por controlar o sistema de comunicação com ambas MSP430, tanto de controle, quanto a de aquisição.
 
 
 \subsection{Custos}
@@ -207,21 +193,6 @@ A tabela \ref{tabelaCustos} apresenta os custos dos componentes a serem utilizad
 \end{table}
 \newpage
 \section{Materiais e Metodos}
-Os materiais utilizados no projeto são:
-\begin{itemize}
-	\item Protoboard
-	\item Jumpers
-	\item Adaptador SMD DIP8
-	\item Sensor de Pressão Diferencial MPX5700
-	\item Compensador de Junta fria e Conversor A/D MAX6675
-	\item Termopar tipo K
-	\item Capacitores (1uF,0.01uF,0.1uF)
-	\item MSP430
-	\item Raspberry Pi 
-	\item Kit Circuito Impresso
-	\item Placa para Circuito Impresso
-	
-\end{itemize}
 
 \section{Descrição dos Componentes}
 Alguns dos componentes tem sua descrição detalhada dispensável como a Protoboard, Jumpers, capacitores, microcontroladores e o adaptador para o C.I. que foi utilizado somente para acoplá-lo corretamente à protoboard e realizar testes antes de confeccionar o circuito final, vista a diferença na dimensão do C.I (SMD) para o acoplamento da protoboard (DIP). A seguir serão apresentados os mais relevantes para o bom entendimento da composição e funcionamento deste subsistema.
@@ -272,7 +243,7 @@ O termopar é um sensor de temperatura simples e de vasta aplicação. Consiste 
 Tipo K define o tipo de material que, neste caso permite leituras de temperatura de aproximadamente -270 a 1200 graus Celcius.
 Todos os componentes obtidos são apresentados nos anexos deste documento. 
 
-\section{PROCEDIMENTOS PARA FUNCIONAMENTO DOS SENSORES}
+\section{Procedimentos para Funcionamento dos Sensores}
 Para iniciar os testes com os sensores um protótipo do circuito final impresso é projetado na protoboard para certificar que tudo está funcionando como esperado e realizar alguns ajustes. Após concluída esta etapa o acoplamento dos sensores no motor deve ser realizado e por fim o circuito final desenvolvido para que possa então permanecer em funcionamento permanente na bancada.
 Abaixo serão apresentados alguns dos avanços já realizados:
 \begin{itemize}
@@ -301,7 +272,7 @@ Os procedimentos futuros para que se possa concluir o objetivo de coletar, trata
 	\item Ler os valores de saída dos sensores a partir do microcontrolador;
 	\item Calcular a conversão de tensão para as grandezas que se deseja obter;	
 \end{itemize}
-\section{PROCEDIMENTOS PARA CONTROLE DO MOTOR}
+\section{Procedimentos de Controle de Partida do Motor}
 O sistema de controle de acionamento e aceleração do motor é composto principalmente pelo sistema de comunicação entre raspberry e msp430 via I$^{2}$C. O fluxo do sistema parte do acionamento do usuário pela aplicação que inicia um comando de uma requisição de escrita da raspberry em um registrador da msp430, se o valor enviado for igual o valor pré-definido para executar a operação uma das portas digitais recebe nível alto acionando o optoacoplador que sequencialmente aciona a contatora para acionar o motor de partida. Quando o motor inicia a combustão os eixos do motor são acionados gerando então pulsos no sensor de giro, este sensor é conectado a uma porta de entrada da msp430 para definir o início da combustão, quando esta porta recebe algum valor diferente de 0V a msp430 corta a alimentação do motor de partida, desacionando a contatora.
 \begin{figure}[h!]
 	\centering
@@ -316,7 +287,7 @@ Para o controle de aceleração o sistema será binário (aceleração total ou 
 	\caption{ Fluxograma de Aceleração/Desaceleração do Motor}
 	\label{ Fluxograma de Aceleração/Desaceleração do Motor}
 \end{figure}
-\section{PROCEDIMENTOS PARA CONVERSÃO E TRANSMISSÃO DE SINAIS}
+\section{Procedimentos para Conversão e Transmissão dos dados}
 Ao total são 6 sensores analógicos que necessitam de conversão para realizar o tratamento e disposição digital. O sistema de conversão e transmissão de dados são posteriores ao condicionamento dos sinais.
 O msp430 possui 8 canais para conversão ADC(\textit{Analogic to Digital Conversor}) conversão múltiplas. Para o projeto, serão utilizados 6 canais, tendo em vista o número de sensores analógicos presentes no projeto. O conversor ADC foi configurado para atuar no modo de múltiplas conversões que dessa forma, inicia a conversão no canal mais significativo (no caso canal A6 - 1 por sensor) até o conversor menos significativo (A0). Além disso, o conversor possui uma resolução de 10 bits. Como os valores de tensão estão em uma faixa entre [0, 3.3] volts a precisão do conversor é dado por:
 \begin{equation}
