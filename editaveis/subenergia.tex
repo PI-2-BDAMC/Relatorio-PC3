@@ -38,39 +38,6 @@ Admitindo-se que o escoamento é permanente, a taxa de transferência de calor d
 	Q = mc_{ph}(T_{h, in} - T_{h, out}) = mc_{pc}(T_{c, in} - T_{c, out})
 \end{equation}
 
-Utilizando o método da diferença de temperatura média logarítmica (LMTD) e conhecendo-se as temperaturas na entrada e na saída, a taxa de transferência de calor também poderá ser definida por \cite{energiaTransferencia}:
-
-\begin{equation}
-	Q = UA_{s}\Delta T_{lm}
-\end{equation}
-
-Onde:
-
-$Q$: taxa transferência de calor;
-
-$U$: coeficiente global de transferência de calor;
-
-$A_{s}$: área de superfície;
-
-$\Delta T_{lm}$: diferença de temperatura média logarítmica.
-
-A diferença de temperatura média logarítmica é dada por :
-
-\begin{equation}
-	\Delta T_{lm} = \frac{\Delta T_{1}-\Delta T_{2}}{ln \frac{\Delta T_{1}}{\Delta T_{2}}}
-\end{equation}
-
-$\Delta T_{1}$ e $\Delta T_{2}$ são as diferenças de temperatura entre os dois fluidos.
-
-Para o trocador de calor de escoamento cruzado em que os fluidos não se misturam utiliza-se um fator de correção F que pode ser encontrado no gráfico da Figura \ref{fator-de-correcao}:
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[keepaspectratio=true,scale= 0.3]{figuras/fator-de-correcao.png}
-	\caption{Fator de correção para trocador de calor de único passe e com fluidos sem mistura.\cite{energiaTransferencia}}
-	\label{fator-de-correcao}
-\end{figure}
-
 Sendo que o trocador de calor já está definido, busca-se a determinação da efetividade de tal trocador. Para isso é utilizado o método da efetividade-NTU. A efetividade do trocador de calor é definida como se segue \cite{energiaTransferencia}:
 
 \begin{equation}
@@ -89,23 +56,13 @@ Onde $C_{min}$ é a taxa de capacidade térmica do fluido de menor capacidade t�
 	C_{min} = mc_{p}
 \end{equation}
 
-O número de unidades de transferência de calor, NTU, é:
-
-\begin{equation}
-	NTU = \frac{UA_{s}}{C_{min}}
-\end{equation}
-
-A efetividade do radiador poderá ser definida pela seguinte equação:
-
-\begin{equation}
-	\varepsilon = 1 - e^{\left [ \left ( \frac{C_{min}}{C_{max}} \right ) ^{-1} \left ( NTU \right ) ^{0,22} \left \{ e^{\frac{-C_{min}}{C_{max}} \left ( NTU \right ) ^{0,22}} -1 \right \} \right ]}
-\end{equation}
-
 Os sensores de temperatura serão posicionados na mangueira do radiador antes da entrada do fluido de arrefecimento no bloco do motor e depois de ter sido feito o resfriamento do motor, ou seja, na saída do motor. Sendo assim, será possível ter o controle da temperatura no motor e fazer as avaliações de troca de calor.
 
-Para fazer os cálculos da transferência de calor, é necessário conhecer os parâmetros de fluxo de água na mangueira do radiador e o fluxo de ar pelo radiador. A medida do fluxo de água será feita por meio de um sensor medidor de fluxo e a medida do fluxo de ar será feita medindo-se a velocidade do fluxo de ar através do núcleo do radiador com o auxílio de um anemômetro e assim, calcula-se a vazão de ar multiplicando a velocidade pela área frontal do radiador.
+Para fazer os cálculos da transferência de calor, é necessário conhecer o fluxo de água na mangueira do radiador e o fluxo de ar pelo radiador. A medida do fluxo de água será feita por meio de um sensor medidor de fluxo.
 
 O calor rejeitado do motor é proporcional à potência útil, portanto deverá ser gerado um gráfico do calor gerado a diferentes rotações do motor.
+
+Até o momento da elaboração deste relatório, os dados dos sensores do sistema de arrefecimento ainda não estavam disponíveis, portanto, não foi possível efetuar a análise de transferência de calor.
 
 \subsection{Sistema de Admissão}
 
@@ -164,17 +121,6 @@ A vazão mássica do ar é:
 
 Essa é a vazão mássica de ar realmente admitida pelo motor  e que será utilizada para o cálculo da razão ar/combustível consumida.
 
-\subsection{Instalação do Dinamômetro}
-
-O conjunto de equipamentos do dinamômetro presente no laboratório de testes do motor de combustão interna é composto por uma central de comando, um motor, um sistema de refrigeração acoplado ao motor e um banco de baterias.
-
-Devido ao fato do conjunto estar na universidade por cerca de 7 anos sem utilização, a principal ação necessária seria a identificação do tipo de motor para a realização dos testes de manutenção específicos para avaliação das condições de funcionamento da máquina.
-
-No entanto, um entrave encontrado para a realização dos testes foi a não caracterização da máquina devido a falta de informação nas placas de identificação.
-
-Sendo assim, descartou-se a utilização do dinamômetro na bancada de testes devido a limitação de informações e ao tempo que limita a realização do trabalho.
-
-
 \subsection{Análise de Emissões}
 
 A maior fonte de poluição urbana do ar pode ser relacionado com o motor a combustão interna, pois além do gás carbônico produzido nas reações de combustão, outros gases também são formados, como  o monóxido de carbono ($CO$), óxidos de nitrogênio ($NO_{x}$), hidrocarbonetos ($HC$), oxigênio ($O_{2}$), compostos orgânicos voláteis (COVs), entres outros.
@@ -211,7 +157,47 @@ O método usado pelo equipamento para obtenção dos dados utiliza o princípio 
 
 Basicamente, cada componente (molécula), possui um comprimento de onda (e frequência correspondente) específico, baseado nisso e na transmitância, é possível obter a concentração de determinados componentes que estão situados na região IR ($infrared$).
 
-A partir dos dados obtidos pelo programa, será feita uma análise relacionando as porcentagens de cada gás emitido com a composição do combustível utilizado. Observando também toda questão legislativa mencionada anteriormente, pois é um fator imprescindível para a indústria automotiva.
+Com a sonda de captação conectada ao sistema de exaustão e o analisador em funcionamento, o sistema foi ligado.
+
+
+
+A partir do ensaio realizado por meio do analisador, coletou-se os dados . Além de assegurar o perfeito funcionamento do equipamento, ele mostra as porcentagens dos principais gases emitidos e quantidade de hidrocarbonetos liberados (em parte por milhão).
+
+\begin{table}[]
+	\centering
+	\caption{My caption}
+	\label{my-label}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Alimentação}                  & \textbf{Valores} \\ \hline
+		Temperatura do escape                 & - $^{\circ}C$    \\ \hline
+		$CO$ (monóxido de carbono)            & 1,09 \%          \\ \hline
+		$CO_{2}$ (dióxido de carbono)         & 2,2 \%           \\ \hline
+		$O_{2}$ (oxigênio)                    & -                \\ \hline
+		$HC$ (hidrocarbonetos)                & 40 ppm           \\ \hline
+		$COc$ (monóxido de carbono corrigido) & 5,35 \%          \\ \hline
+	\end{tabular}
+\end{table}
+
+A temperatura dos gases de escape ainda não foi levantada devido a leitura dos sensores. Quanto a porcentagem de oxigênio, o sensor está fora do prazo de validade.
+
+A exatidão dos analisadores que utilizam essa técnica , por faixas de concentração de $CO$ e de $HC$, é apresentada na tabela \ref{exatidao} a seguir:
+
+\begin{table}[]
+	\centering
+	\caption{Exatidão dos analisadores por faixa de concentração de CO e de HC. Fonte: Relatório de Verificação Inicial do INMETRO Nº 169 de 19 de agosto de 2002.}
+	\label{exatidao}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{2}{|c|}{CO (\%)} & \multicolumn{2}{c|}{HC (ppm)} \\ \hline
+		Faixa        & Exatidão       & Faixa           & Exatidão    \\ \hline
+		0 a 2        & \pm 0,06       & 0 a 400         & \pm 20      \\ \hline
+		2 a 5        & \pm 0,15       & 400 a 1000      & \pm 40      \\ \hline
+		5 a 10       & \pm 0,30       & 1000 a 2000     & \pm 60      \\ \hline
+	\end{tabular}
+\end{table}
+
+Apesar da precisão não ser a maior, ainda consta dentre os padrões determinado pela norma.
 
 \subsection{Consumo de combustível}
 
@@ -220,12 +206,9 @@ Tendo como análise um motor a gasolina, os ensaios serão realizados utilizando
 \begin{itemize}
 \item Gasolina pura;
 \item Gasolina Comum Brasileira (tipo C): mistura E27 - correspondente a um percentual de 73\% de gasolina pura e 27\% de álcool anidro (AEAC);
-\item Mistura E50: correspondente a um percentual de 50\% de gasolina pura e 50\% de álcool anidro (AEAC);
 \end{itemize}
 
-Para obtenção da gasolina com máximo grau de pureza, foi utilizado o método de extração líquido-líquido. Sendo baseado na diferença de solubilidade do álcool na gasolina e na solução de $NaCl$ (usada para aumentar a solubilidade do álcool em água, pois sendo este sal um composto iônico, a sua solução é mais polar do que a água pura, desta maneira consegue-se extrair com mais eficiência o álcool da camada orgânica, gasolina).
-
-Quanto a medição do consumo de combustível foi considerado o método mássico que consiste em colocar uma balança sob o tanque de combustível. Utilizando-se da escala da balança como referência, quando o ponteiro passar por um valor conhecido aciona-se o cronômetro e quando o ponteiro passar por um novo valor conhecido, para-se o cronômetro \cite{taylor}.
+Quanto a medição do consumo de combustível foi considerado o método mássico com a utilização de um sistema utilizando uma célula de carga, conforme a imagem a seguir:.
 
 \begin{figure}[h!]
 	\centering
