@@ -159,9 +159,14 @@ Basicamente, cada componente (molécula), possui um comprimento de onda (e frequ
 
 Com a sonda de captação conectada ao sistema de exaustão e o analisador em funcionamento, o sistema foi ligado.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio=true,scale= 0.8]{figuras/DR.png}
+	\caption{Funcionamento do sistema de medição.}
+	\label{funcionamento}
+\end{figure}
 
-
-A partir do ensaio realizado por meio do analisador, coletou-se os dados . Além de assegurar o perfeito funcionamento do equipamento, ele mostra as porcentagens dos principais gases emitidos e quantidade de hidrocarbonetos liberados (em parte por milhão).
+A partir do ensaio realizado por meio do analisador, coletou-se os dados. Além de assegurar o perfeito funcionamento do equipamento, ele mostra as porcentagens dos principais gases emitidos e quantidade de hidrocarbonetos liberados (em parte por milhão).
 
 \begin{table}[]
 	\centering
@@ -191,9 +196,9 @@ A exatidão dos analisadores que utilizam essa técnica , por faixas de concentr
 		\hline
 		\multicolumn{2}{|c|}{CO (\%)} & \multicolumn{2}{c|}{HC (ppm)} \\ \hline
 		Faixa        & Exatidão       & Faixa           & Exatidão    \\ \hline
-		0 a 2        & \pm 0,06       & 0 a 400         & \pm 20      \\ \hline
-		2 a 5        & \pm 0,15       & 400 a 1000      & \pm 40      \\ \hline
-		5 a 10       & \pm 0,30       & 1000 a 2000     & \pm 60      \\ \hline
+		0 a 2        & $\pm 0,06$       & 0 a 400         & $\pm 20$      \\ \hline
+		2 a 5        & $\pm 0,15$       & 400 a 1000      & $\pm 40$      \\ \hline
+		5 a 10       & $\pm 0,30$       & 1000 a 2000     & $\pm 60$      \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -208,20 +213,13 @@ Tendo como análise um motor a gasolina, os ensaios serão realizados utilizando
 \item Gasolina Comum Brasileira (tipo C): mistura E27 - correspondente a um percentual de 73\% de gasolina pura e 27\% de álcool anidro (AEAC);
 \end{itemize}
 
-Quanto a medição do consumo de combustível foi considerado o método mássico com a utilização de um sistema utilizando uma célula de carga, conforme a imagem a seguir:.
+Quanto a medição do consumo de combustível foi considerado o método mássico com a utilização de um sistema utilizando uma célula de carga, conforme a imagem \ref{celula} a seguir:
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio=true,scale= 0.6]{figuras/medicao-de-consumo.png}
-	\caption{Método mássico de medição de consumo.}
-	\label{medicao-de-consumo}
+	\includegraphics[keepaspectratio=true,scale= 0.6]{figuras/CELULA.png}
+	\caption{Célula de carga instalada para medição.}
+	\label{celula}
 \end{figure}
 
- O acionamento e desligamento do cronômetro será feito por um sensor de infravermelho. Tendo assim uma massa consumida em um determinado tempo ($t$), o que é exatamente a vazão em massa de combustível consumido. A partir disso será feito um conjunto de análises, como: gráfico de consumo de combustível por velocidade angular ($rpm$); emissões geradas e desempenho do motor.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[keepaspectratio=true,scale= 0.6]{figuras/funcionamento-cronometro.png}
-	\caption{Funcionamento do cronômetro a partir dos sensores de infravermelho.}
-	\label{funcionamento-cronometro}
-\end{figure}
+O princípio de funcionamento da célula de carga é baseado na deformação ou flexão de um corpo transformando-a em tensão. Os sinais são obtidos com o strain gage o qual converte a deformação em tensão e, com a ponte de Wheatstone gera um sinal em micro volts que varia proporcionalmente ao peso aplicado.
