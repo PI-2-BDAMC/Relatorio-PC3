@@ -222,7 +222,7 @@ Criou-se um protótipo de baixa fidelidade da interface gráfica no intuito de t
 	\label{fig:telainicial}
 \end{figure}
 
-Após o início do ensaio, o usuário será apresentado à tela de análise onde o mesmo terá acesso a elementos dinâmicos (velocímetros, termômetros e mostradores), bem como a gráficos referentes as informações oriundas dos sensores acoplados ao motor, como ilustrado na Figura \ref{fig:teladeanalise}. 
+Após o início do ensaio, o usuário será apresentado à tela de análise onde o mesmo terá acesso a elementos dinâmicos (velocímetros, termômetros e mostradores), bem como a gráficos referentes as informações oriundas dos sensores acoplados ao motor, como ilustrado na Figura \ref{fig:teladeanalise}.
 
 \begin{figure}[h!]
 	\centering
@@ -265,3 +265,72 @@ E então, por fim, visualizar os resultados armazenados de todos os ensaios ante
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Plano de Manutenção}
+\label{anexoB}
+
+\section{Analisador de gases PC-Multigás}
+
+Para realização da manutenção do equipamento, deve-se seguir os seguintes passos:
+
+\begin{enumerate}
+	\item Selecionar a função Manutenção (PC-SCAN) para o operador ter acesso às funções de calibração do analisador de gases.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[keepaspectratio=true,scale= 1.0]{figuras/PLANO1.jpg}
+		\caption{Método de Calibração - Parte 1 - PC Multigás}
+		\label{metodoCalibracao}
+	\end{figure}
+
+	Este programa possibilita a realizaçõa do SPAN (calibração) dos gases $CO$, $CO_{2}$, $HC$ e $O_{2}$ (ar ambiente), por intermédio de um cilindro contendo os gases com seus valores conhecidos.
+
+	Inicialmente o programa de calibração passará a se comunicar com o analisador de gases, verificando se o mesmo se encontra em aquecimento, se a data limite de utilização do sensor de oxigênio foi atingida, e a necessidade de realização do teste de vedação. Apresentando a seguir a solicitação do método de calibração a ser utilizado.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[keepaspectratio=true,scale= 1.0]{figuras/PLANO2.jpg}
+		\caption{Método de Calibração - Parte 2 - PC Multigás}
+		\label{metodoCalibracao}
+	\end{figure}
+
+	\item Neste momento o operador passa a ter acesso às teclas de função:
+
+	\textbf{Botão Finalizar}: Finaliza o Span retornando ao Menu Principal.
+
+	\textbf{Botão Confirmar}: Inicia a calibração.
+
+	\item Modifique os valores para calibração se necessário.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[keepaspectratio=true,scale= 1.0]{figuras/PLANO3.jpg}
+		\caption{Tela para modificar valores de calibração - PC Multigás}
+		\label{metodoCalibracao}
+	\end{figure}
+
+	Execute sempre a calibração do Ponto 2 (maior concentração) antes do Ponto 1.
+
+	Inicialmente o equipamento passa a realizar uma calibração do ponto zero do analisador de gases. Em seguida tem início a calibração do canal de oxigênio, utilizando-se o ar ambiente e os demais gases.
+
+	\item Para o procedimento de calibração dos gases $CO$, $CO_{2}$ e $HC$, o cilindro de gás deverá ser conectado à entrada GÁS AMOSTRA quando for solicitado. Certifique-se que o cilindro está com a válvula aberta e o manômetro indicando uma pressão de 0.20 Bar aproximadamente.
+
+
+	\item O resultado será indicado no vídeo e poderá ser impresso através do botão Imprimir.
+
+	\item Finalizar o programa.
+
+\end{enumerate}
